@@ -1,9 +1,16 @@
 import './App.css';
+import React from 'react';
+import Header from './Header';
+import AddContact from './AddContact';
+import ContactCard from './ContactCard';
+import ContactList from './ContactList';
 
 function App() {
   return (
-    <div className="App">
-     <h2>Welcome!</h2>
+    <div>
+      <Header />
+      {/* <AddContact />
+      <ContactList /> */}
     </div>
   );
 }
