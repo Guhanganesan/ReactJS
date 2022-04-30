@@ -6,11 +6,29 @@ import ContactCard from './ContactCard';
 import ContactList from './ContactList';
 
 function App() {
+  //Props => <ContactList contacts={contacts} />
+  const contacts = [
+    {
+      id:'1',
+      name:"Guhan",
+      email:"guhan@gmail.com"
+    },
+    {
+      id:'2',
+      name:"Anbu",
+      email:"anbu@gmail.com"
+    },
+    {
+      id:'3',
+      name:"Raja",
+      email:"raja@gmail.com"
+    }
+  ]
   return (
-    <div>
+    <div className="ui container">
       <Header />
       <AddContact />
-      {/* <ContactList /> */}
+      <ContactList contacts={contacts} />
     </div>
   );
 }
