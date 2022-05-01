@@ -13,13 +13,15 @@ class AddContact extends React.Component{
      */
     addData = (event) =>{
         event.preventDefault();
-        if(this.state.name === "" && this.state.email === ""){
+        if(this.state.name === "" || this.state.email === ""){
             alert("All fields are mantatory....");
             return;
         }
         console.log(this.state)
         // pass data to parent component
         this.props.addContactHandler(this.state);
+        //clear data
+        this.setState({name:"", email:""})
     }
 
     /**

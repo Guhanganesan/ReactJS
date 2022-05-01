@@ -29,7 +29,9 @@ function App() {
   // using props we can pass data from parent to child
   // by using handler we are going to get data from child 
   const addContactHandler = (contact)=>{
-    console.log(contact)
+    console.log(contact);
+    //set all contacts value with rest of the contacts
+    setContacts([...contacts, contact]);
   }
 
   return (
