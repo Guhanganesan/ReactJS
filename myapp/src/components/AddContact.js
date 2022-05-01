@@ -18,6 +18,8 @@ class AddContact extends React.Component{
             return;
         }
         console.log(this.state)
+        // pass data to parent component
+        this.props.addContactHandler(this.state);
     }
 
     /**

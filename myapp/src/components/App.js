@@ -26,10 +26,16 @@ function App() {
   // ]
   const [contacts, setContacts] = useState([]);
 
+  // using props we can pass data from parent to child
+  // by using handler we are going to get data from child 
+  const addContactHandler = (contact)=>{
+    console.log(contact)
+  }
+
   return (
     <div className="ui container">
       <Header />
-      <AddContact />
+      <AddContact addContactHandler={addContactHandler} />
       <ContactList contacts={contacts} />
     </div>
   );
