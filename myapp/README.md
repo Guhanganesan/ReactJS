@@ -73,3 +73,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 https://cdnjs.com/libraries/semantic-ui
 
+# Install UUID for unique key
+=> npm install uuidv4
+=> npm install util
+
+

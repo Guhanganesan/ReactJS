@@ -1,5 +1,6 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {uuid} from 'uuidv4';
 import Header from './Header';
 import AddContact from './AddContact';
 import ContactCard from './ContactCard';
@@ -7,31 +8,34 @@ import ContactList from './ContactList';
 
 function App() {
   //Props => <ContactList contacts={contacts} />
-  // const contacts = [
-  //   {
-  //     id:'1',
-  //     name:"Guhan",
-  //     email:"guhan@gmail.com"
-  //   },
-  //   {
-  //     id:'2',
-  //     name:"Anbu",
-  //     email:"anbu@gmail.com"
-  //   },
-  //   {
-  //     id:'3',
-  //     name:"Raja",
-  //     email:"raja@gmail.com"
-  //   }
-  // ]
-  const [contacts, setContacts] = useState([]);
 
-  // using props we can pass data from parent to child
-  // by using handler we are going to get data from child 
+  const LOCAL_STORAGE_KEY = "contacts";
+  
+  // contacts = [] and setContacts will call in useEffect to add array values in contacts
+  const [contacts, setContacts] = useState([]); 
+
+  //store data
+  useEffect(()=>{
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts))
+  }, contacts)
+
+  // //retrieve data
+  useEffect(()=>{
+    const res = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if(res){
+      setContacts(res);
+    }
+  }, contacts) 
+
+  
+  /**
+   * Using props we can pass data from parent to chil
+   * By using handler we are going to get data from child 
+   */ 
   const addContactHandler = (contact)=>{
-    console.log(contact);
     //set all contacts value with rest of the contacts
-    setContacts([...contacts, contact]);
+    contacts.push(contact)
+    setContacts(contacts); // will replace [] into array values in useState([{....}])
   }
 
   return (
